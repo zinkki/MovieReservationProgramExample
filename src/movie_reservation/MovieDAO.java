@@ -26,7 +26,28 @@ public class MovieDAO {
 		}
 	}
 	
-	public Vector<MovieBean> movieList() {
+	public void insertMovie(MovieBean mbean) {
+		
+		try {
+			getCon();
+			String sql = "INSERT INTO movie VALUES(?,?,?,?,?,?,?)";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, mbean.getMov_code());
+			pstmt.setString(2, mbean.getMov_theater());
+			pstmt.setString(3, mbean.getMov_title());
+			pstmt.setString(4, mbean.getMov_genre());
+			pstmt.setString(5, mbean.getMov_date());
+			pstmt.setString(6, mbean.getMov_time());
+			pstmt.setInt(7, mbean.getMov_price());
+			pstmt.executeUpdate();
+			con.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	//영화리스트 불러오기
+	public Vector<MovieBean> movieRegistrationList() {
 		
 		Vector<MovieBean> v = new Vector<>();
 		getCon();

@@ -12,12 +12,12 @@
 <body>
 
 <%
-	//MovieDAO mdao = new MovieDAO();
+	MovieDAO mdao = new MovieDAO();
 	//Vector<MovieBean> vec = mdao.movieList();
 %>
 
 <br><br><br><h1 align="center">ZINKKI'S MOVIE THEATER</h1><br><br>
-	
+	<h3 align="center"><a href="m_Join.jsp">Go to Join</a></h3>
 	<table align="center" border="1">
 		<tr height="40">
 			<td width="100" align="center"><img src="img/movie1.jpg" width="100px" height="150px"></td>

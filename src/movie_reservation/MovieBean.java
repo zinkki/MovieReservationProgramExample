@@ -9,7 +9,7 @@ public class MovieBean {
 	String mov_date; //영화날짜
 	String mov_time; //영화시간
 	int mov_price; //영화가격
-	String mov_seat; //영화좌석
+	
 	int peo_num; //인원수
 	String res_seat; //예약좌석
 	
@@ -62,12 +62,7 @@ public class MovieBean {
 	public void setMov_price(int mov_price) {
 		this.mov_price = mov_price;
 	}
-	public String getMov_seat() {
-		return mov_seat;
-	}
-	public void setMov_seat(String mov_seat) {
-		this.mov_seat = mov_seat;
-	}
+	
 	public int getPeo_num() {
 		return peo_num;
 	}
