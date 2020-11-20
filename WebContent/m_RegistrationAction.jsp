@@ -1,8 +1,10 @@
-<%@ page import="movie_reservation.MovieBean" %>
-<%@ page import="movie_reservation.MovieDAO" %>
+<%@ page import="movie_reservation.MovieBean"%>
+<%@ page import="movie_reservation.MovieDAO"%>
+<%@ page import="movie_reservation.MemberBean"%>
+<%@ page import="movie_reservation.MemberDAO"%>
 <%@page import="java.io.PrintWriter"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,17 +13,21 @@
 </head>
 <body>
 
-<jsp:useBean id="mbean" class="movie_reservation.MovieBean">
-	<jsp:setProperty name="mbean" property="*"/>
-</jsp:useBean>
+	<jsp:useBean id="movbean" class="movie_reservation.MovieBean">
+		<jsp:setProperty name="movbean" property="*" />
+	</jsp:useBean>
+	<jsp:useBean id="membean" class="movie_reservation.MemberBean">
+		<jsp:setProperty name="membean" property="mem_id" />
+	</jsp:useBean>
 
-<%
-	MovieDAO mdao = new MovieDAO();
+	<%
 	
+	MemberDAO memdao = new MemberDAO();
+	MovieDAO movdao = new MovieDAO();
 	
 	//입력안된사항있을때!
-	if(mbean.getMov_code()==0 || mbean.getMov_theater()==null || mbean.getMov_title()==null ||
-			mbean.getMov_genre()==null || mbean.getMov_date()==null || mbean.getMov_time()==null || mbean.getMov_price()==0)
+	if(movbean.getMov_code()<=0 || movbean.getMov_theater()==null || movbean.getMov_title()==null ||
+			movbean.getMov_genre()==null || movbean.getMov_date()==null || movbean.getMov_time()==null || movbean.getMov_price()<=0)
 	{
 		PrintWriter script = response.getWriter();
 		script.println("<script>");
@@ -31,13 +37,13 @@
 	}else {
 		PrintWriter script = response.getWriter();
 		
-		mdao.insertMovie(mbean);
+		movdao.insertMovie(movbean);
 		
 		script.println("<script>");
-		script.println("alert('Registration Success! :)')");
+		script.println("alert('Registration Success!')");
 		script.println("</script>");
 		
-		response.sendRedirect("m_RegistrationList.jsp");
+		response.sendRedirect("m_RegistrationListAction.jsp");
 	}
 
 %>

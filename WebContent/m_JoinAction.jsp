@@ -1,8 +1,8 @@
 <%@page import="java.io.PrintWriter"%>
-<%@page import="movie_reservation.MemberDAO" %>
-<%@page import="movie_reservation.MemberBean" %>
+<%@page import="movie_reservation.MemberDAO"%>
+<%@page import="movie_reservation.MemberBean"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,11 +11,11 @@
 </head>
 <body>
 
-<jsp:useBean id="mbean" class="movie_reservation.MemberBean">
-	<jsp:setProperty name="mbean" property="*"/>
-</jsp:useBean>
+	<jsp:useBean id="mbean" class="movie_reservation.MemberBean">
+		<jsp:setProperty name="mbean" property="*" />
+	</jsp:useBean>
 
-<%
+	<%
  	String mem_id= null;
   if(session.getAttribute("mem_id") != null ){
 	  mem_id = (String)session.getAttribute("mem_id");

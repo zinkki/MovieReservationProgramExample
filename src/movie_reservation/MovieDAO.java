@@ -36,9 +36,9 @@ public class MovieDAO {
 			pstmt.setString(2, mbean.getMov_theater());
 			pstmt.setString(3, mbean.getMov_title());
 			pstmt.setString(4, mbean.getMov_genre());
-			pstmt.setString(5, mbean.getMov_date());
-			pstmt.setString(6, mbean.getMov_time());
-			pstmt.setInt(7, mbean.getMov_price());
+			pstmt.setInt(5, mbean.getMov_price());
+			pstmt.setString(6, mbean.getMov_date());
+			pstmt.setString(7, mbean.getMov_time());
 			pstmt.executeUpdate();
 			con.close();
 		} catch (Exception e) {
@@ -59,6 +59,9 @@ public class MovieDAO {
 			while(rs.next()) {
 				MovieBean mbean = new MovieBean();
 				mbean.setMov_code(rs.getInt(1));
+				mbean.setMov_date(rs.getString(6));
+				mbean.setMov_title(rs.getString(3));
+				v.add(mbean);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -66,6 +69,64 @@ public class MovieDAO {
 		
 		return v;
 	}
+	
+	//영화등록리스트에서 선택한 영화의 정보를 볼수있당!
+	public Vector<MovieBean> movieInfo(int mov_code){
+		
+		Vector<MovieBean> v = new Vector<>();
+		
+		getCon();
+		
+		try {
+			String sql = "SELECT * FROM movie WHERE mov_code=?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, mov_code);
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				MovieBean mbean = new MovieBean();
+				mbean.setMov_code(rs.getInt(1));
+				mbean.setMov_theater(rs.getString(2));
+				mbean.setMov_title(rs.getString(3));
+				mbean.setMov_genre(rs.getString(4));
+				mbean.setMov_price(rs.getInt(5));
+				mbean.setMov_date(rs.getString(6));
+				mbean.setMov_time(rs.getString(7));
+				v.add(mbean);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return v;
+	}
+	
+	//(관리자)영화삭제하기
+	public void deleteMovie(int mov_code) {
+		
+		getCon();
+		
+		try {
+			String sql = "DELETE FROM movie WHERE mov_code =?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, mov_code);
+			pstmt.executeUpdate();
+			con.close();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 }

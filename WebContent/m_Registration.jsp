@@ -69,7 +69,7 @@
 		<td width="150" align="center"> TIME </td>
 		<td width="350" align="center">
 		<select name="mov_time">
-		<option value="9:00-11:00">9:00-11:00</option>
+		<option value="09:00-11:00">09:00-11:00</option>
 		<option value="10:00-12:00">10:00-12:00</option>
 		<option value="11:00-13:00">11:00-13:00</option>
 		<option value="13:00-15:00">13:00-15:00</option>
