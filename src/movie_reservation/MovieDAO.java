@@ -118,7 +118,31 @@ public class MovieDAO {
 		}
 	}
 
-	
+	//(관리자)영화 정보수정하기!
+	public void updateMovieInfo(MovieBean mbean) {
+		
+		getCon();
+		
+		try {
+			String sql = "UPDATE movie SET mov_genre=?, mov_title=?, mov_theater=?, mov_date=?, mov_time=?, mov_price=? WHERE mov_code=?"; 
+			pstmt = con.prepareStatement(sql);
+						
+			pstmt.setString(1, mbean.getMov_genre());
+			pstmt.setString(2, mbean.getMov_title());
+			pstmt.setString(3, mbean.getMov_theater());
+			pstmt.setString(4, mbean.getMov_date());
+			pstmt.setString(5, mbean.getMov_time());
+			pstmt.setInt(6, mbean.getMov_price());
+			pstmt.setInt(7, mbean.getMov_code());
+			
+			pstmt.executeUpdate();
+			
+			con.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+	}
 	
 	
 	

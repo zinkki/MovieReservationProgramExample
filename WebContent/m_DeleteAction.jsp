@@ -16,8 +16,8 @@
 </jsp:useBean>
 
 	<%
-		// 여기부분 문제! int 형으로 받아오깅...일단 월욜날오면 삭제부터다시하자!
-		int mov_code= Integer.parseInt("mbean.getMov_code()");
+		//해결해결! request.getParameter> int형변환!
+		int mov_code= Integer.parseInt(request.getParameter("mov_code"));
 		MovieDAO mdao = new MovieDAO();
 		mdao.deleteMovie(mov_code);
 		response.sendRedirect("m_RegistrationList.jsp");

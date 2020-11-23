@@ -1,5 +1,4 @@
 <%@ page import="java.util.Vector" %>
-<%@ page import="java.util.Vector" %>
 <%@ page import="movie_reservation.MovieBean" %>
 <%@ page import="movie_reservation.MovieDAO" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -30,20 +29,16 @@
 			<td align="center" width="300"><%=bean.getMov_code() %></td>
 		</tr>
 		<tr height="40">
-			<td align="center" width="200">Theater</td>
-			<td align="center" width="300"><%=bean.getMov_theater() %></td>
+			<td align="center" width="200">Genre</td>
+			<td align="center" width="300"><%=bean.getMov_genre() %></td>
 		</tr>
 		<tr height="40">
 			<td align="center" width="200">Title</td>
 			<td align="center" width="300"><%=bean.getMov_title() %></td>
 		</tr>
 		<tr height="40">
-			<td align="center" width="200">Genre</td>
-			<td align="center" width="300"><%=bean.getMov_genre() %></td>
-		</tr>
-		<tr height="40">
-			<td align="center" width="200">Price</td>
-			<td align="center" width="300"><%=bean.getMov_price() %></td>
+			<td align="center" width="200">Theater</td>
+			<td align="center" width="300"><%=bean.getMov_theater() %></td>
 		</tr>
 		<tr height="40">
 			<td align="center" width="200">Date</td>
@@ -54,13 +49,17 @@
 			<td align="center" width="300"><%=bean.getMov_time() %></td>
 		</tr>
 		<tr height="40">
+			<td align="center" width="200">Price</td>
+			<td align="center" width="300"><%=bean.getMov_price() %></td>
+		</tr>
+		<tr height="40">
 			<td align="center" colspan="2">
 			<input type="button" value="DELETE"
 			onclick="if(confirm('Are you sure you want to delete it?')){
 				location.href='m_DeleteAction.jsp?mov_code=<%=bean.getMov_code() %>'
 				alert('OK');
 			}else { alert('Cancele');}"> &nbsp;&nbsp;
-			<input type="button" value="UPDATE" onclick="location.href='m_UpdateAction.jsp?mov_code=<%=bean.getMov_code() %>'">
+			<input type="button" value="UPDATE" onclick="location.href='m_UpdateForm.jsp?mov_code=<%=bean.getMov_code() %>'">
 			&nbsp;&nbsp;
 			<input type="button" value="LIST" onclick="location.href='m_RegistrationList.jsp?mov_code=<%=bean.getMov_code() %>'"></td>
 		</tr>
