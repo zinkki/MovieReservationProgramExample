@@ -32,6 +32,10 @@
 			<td align="center" width="200">Genre</td>
 			<td align="center" width="300"><%=bean.getMov_genre() %></td>
 		</tr>
+		<tr height="220">
+			<td align="center" width="200">Poster</td>
+			<td align="center" width="300"><img name="mov_poster?mov_code=<%=bean.getMov_code()%>"></td>
+		</tr>
 		<tr height="40">
 			<td align="center" width="200">Title</td>
 			<td align="center" width="300"><%=bean.getMov_title() %></td>

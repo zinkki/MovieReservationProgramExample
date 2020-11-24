@@ -1,57 +1,13 @@
-<%@ page import="java.util.Vector"%>
-<%@ page import="movie_reservation.MovieDAO"%>
-<%@ page import="movie_reservation.MovieBean"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>MAIN</title>
+<title>Insert title here</title>
 </head>
 <body>
-
-	<%
-	String logout = request.getParameter("logout");
-
-	if(logout != null) {
-		session.setAttribute("mem_id", null);
-		session.setMaxInactiveInterval(0);
-	}
-	String mem_id = (String)session.getAttribute("mem_id");
-	if(mem_id == null) {
-		mem_id = "GUEST";
-	}
-
-%>
-	<h3 align="right">
-		<%
-	if(mem_id.equals("GUEST")){
-%>
-		You are
-		<%=mem_id %>
-		! <br> <button type="button" onclick="location.href='m_Login.jsp'">LOGIN</button> &nbsp;&nbsp; 
-			   <button type="button" onclick="location.href='m_Join.jsp'">JOIN</button>
-		<%
-	}else if(mem_id.equals("admin")){
-%>
-		<%=mem_id %>. <br> <a href="m_LogoutAction.jsp">Logout</a><br>
-		<br> <a href="m_RegistrationList.jsp">Go to Movie
-			Registration!</a>
-		<%
-	}else {
-%>
-		<%=mem_id %>
-		&nbsp;, WELCOME! <br> <a href="m_LogoutAction.jsp">Logout</a>
-		<%		
-	}
-%>
-	</h3>
-
-	<h1 align="center">ZINKKI'S MOVIE THEATER</h1>
-	<br>
-	
-	<h1 align="center">MOVIE LIST</h1>
+<h1 align="center">MOVIE LIST</h1>
 <table align="center">
 	<tr>
 		<td align="center"><img src="img/28days.jpg" width="170px" height="240px"></td>
@@ -144,10 +100,5 @@
 		<td align="center"><a href="#">WORLD WAR Z</a></td>
 	</tr>
 </table>
-<br><br><br><br><br><br>
-
-
-
-
 </body>
 </html>

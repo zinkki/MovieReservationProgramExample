@@ -48,6 +48,10 @@
 			 </select>
 		 	</td>
 		</tr>
+		<tr height="220">
+			<td align="center" width="200">Poster</td>
+			<td align="center" width="300"><input type="file" name="mov_poster" accept="image/*"></td>
+		</tr>
 		<tr height="40">
 			<td align="center" width="200">Title</td>
 			<td align="center" width="350"><input type="text" name="mov_title" value="<%=mbean.getMov_title() %>"></td>

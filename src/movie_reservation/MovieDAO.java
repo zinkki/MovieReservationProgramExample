@@ -52,7 +52,7 @@ public class MovieDAO {
 		Vector<MovieBean> v = new Vector<>();
 		getCon();
 		try {
-			String sql = "SELECT * FROM movie";
+			String sql = "SELECT * FROM movie ORDER BY mov_code asc";
 			pstmt = con.prepareStatement(sql);
 			rs = pstmt.executeQuery();
 			
