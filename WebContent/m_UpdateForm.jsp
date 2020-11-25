@@ -50,7 +50,7 @@
 		</tr>
 		<tr height="220">
 			<td align="center" width="200">Poster</td>
-			<td align="center" width="300"><input type="file" name="mov_poster" accept="image/*"></td>
+			<td align="center" width="300"><input type="file" name="mov_img"></td>
 		</tr>
 		<tr height="40">
 			<td align="center" width="200">Title</td>

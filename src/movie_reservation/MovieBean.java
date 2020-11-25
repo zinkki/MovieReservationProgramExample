@@ -9,11 +9,19 @@ public class MovieBean {
 	String mov_date; //영화날짜
 	String mov_time; //영화시간
 	int mov_price; //영화가격
+	String mov_img; //영화이미지(jpg,png)
 	
 	int peo_num; //인원수
 	String res_seat; //예약좌석
 	
 	
+	
+	public String getMov_img() {
+		return mov_img;
+	}
+	public void setMov_img(String mov_img) {
+		this.mov_img = mov_img;
+	}
 	public String getRes_seat() {
 		return res_seat;
 	}

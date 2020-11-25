@@ -43,7 +43,7 @@
 		script.println("alert('Registration Success!')");
 		script.println("</script>");
 		
-		response.sendRedirect("m_RegistrationListAction.jsp");
+		response.sendRedirect("m_RegistrationList.jsp");
 	}
 
 %>

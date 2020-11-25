@@ -31,7 +31,7 @@
 %>
 		<tr height="40">
 			<td width="50" align="center"><%=i+1 %></td>
-			<td width="150" align="center"><a href="m_Info.jsp?mov_code=<%=mbean.getMov_code()%>"><%=mbean.getMov_code() %></a></td>
+			<td width="150" align="center"><a href="fileExample.jsp?mov_code=<%=mbean.getMov_code()%>"><%=mbean.getMov_code() %></a></td>
 			<td width="150" align="center"><%=mbean.getMov_date() %></td>
 			<td width="250" align="center"><%=mbean.getMov_title() %></td>
 		</tr>

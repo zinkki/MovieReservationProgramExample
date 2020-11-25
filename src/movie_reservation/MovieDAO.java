@@ -30,7 +30,7 @@ public class MovieDAO {
 		
 		try {
 			getCon();
-			String sql = "INSERT INTO movie VALUES(?,?,?,?,?,?,?)";
+			String sql = "INSERT INTO movie VALUES(?,?,?,?,?,?,?,?)";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, mbean.getMov_code());
 			pstmt.setString(2, mbean.getMov_theater());
@@ -39,6 +39,7 @@ public class MovieDAO {
 			pstmt.setInt(5, mbean.getMov_price());
 			pstmt.setString(6, mbean.getMov_date());
 			pstmt.setString(7, mbean.getMov_time());
+			pstmt.setString(8, mbean.getMov_img());
 			pstmt.executeUpdate();
 			con.close();
 		} catch (Exception e) {
@@ -92,6 +93,7 @@ public class MovieDAO {
 				mbean.setMov_price(rs.getInt(5));
 				mbean.setMov_date(rs.getString(6));
 				mbean.setMov_time(rs.getString(7));
+				mbean.setMov_img(rs.getString(8));
 				v.add(mbean);
 			}
 		} catch (Exception e) {
@@ -124,7 +126,7 @@ public class MovieDAO {
 		getCon();
 		
 		try {
-			String sql = "UPDATE movie SET mov_genre=?, mov_title=?, mov_theater=?, mov_date=?, mov_time=?, mov_price=? WHERE mov_code=?"; 
+			String sql = "UPDATE movie SET mov_genre=?, mov_title=?, mov_theater=?, mov_date=?, mov_time=?, mov_price=?, mov_img=? WHERE mov_code=?"; 
 			pstmt = con.prepareStatement(sql);
 						
 			pstmt.setString(1, mbean.getMov_genre());
@@ -133,7 +135,8 @@ public class MovieDAO {
 			pstmt.setString(4, mbean.getMov_date());
 			pstmt.setString(5, mbean.getMov_time());
 			pstmt.setInt(6, mbean.getMov_price());
-			pstmt.setInt(7, mbean.getMov_code());
+			pstmt.setString(7, mbean.getMov_img());
+			pstmt.setInt(8, mbean.getMov_code());
 			
 			pstmt.executeUpdate();
 			
@@ -142,6 +145,37 @@ public class MovieDAO {
 			e.printStackTrace();
 		}
 		
+	}
+	
+	//이미지불러와지는지...확인하기ㅜ
+	public Vector<MovieBean> imgList(){
+		
+		Vector<MovieBean> v = new Vector<>();
+		getCon();
+		
+		try {
+		String sql = "SELECT * FROM movie ORDER BY mov_code asc";
+		pstmt = con.prepareStatement(sql);
+		rs = pstmt.executeQuery();
+		
+		while(rs.next()) {
+			MovieBean bean = new MovieBean();
+			bean.setMov_code(rs.getInt(1));
+			bean.setMov_genre(rs.getString(2));
+			bean.setMov_img(rs.getString(3));
+			bean.setMov_title(rs.getString(4));
+			bean.setMov_theater(rs.getString(5));
+			bean.setMov_date(rs.getString(6));
+			bean.setMov_time(rs.getString(7));
+			bean.setMov_price(rs.getInt(8));
+			v.add(bean);
+		}
+			con.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return v;
 	}
 	
 	

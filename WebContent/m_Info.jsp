@@ -34,7 +34,7 @@
 		</tr>
 		<tr height="220">
 			<td align="center" width="200">Poster</td>
-			<td align="center" width="300"><img name="mov_poster?mov_code=<%=bean.getMov_code()%>"></td>
+			<td align="center" width="300"><img alt="" src="img/<%=bean.getMov_img() %>" width="170px" height="240px"></td>
 		</tr>
 		<tr height="40">
 			<td align="center" width="200">Title</td>
