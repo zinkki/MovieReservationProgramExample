@@ -1,3 +1,5 @@
+<%@page import="com.oreilly.servlet.MultipartRequest"%>
+<%@ page import="java.util.Vector" %>
 <%@page import="java.io.PrintWriter"%>
 <%@ page import="movie_reservation.MovieDAO"%>
 <%@ page import="movie_reservation.MovieBean"%>
@@ -17,10 +19,11 @@
 		<jsp:setProperty name="membean" property="*" />	
 	</jsp:useBean>
 <%
-	MovieDAO mdao = new MovieDAO();
+	
+	MovieDAO mdao = new MovieDAO(); 
 
-	if(movbean.getMov_code()<=0 || movbean.getMov_theater()==null || movbean.getMov_title()==null ||
-	movbean.getMov_genre()==null || movbean.getMov_date()==null || movbean.getMov_time()==null || movbean.getMov_price()<=0)
+	if(movbean.getMov_code()<=0 || movbean.getMov_genre()==null || movbean.getMov_title()==null ||
+	movbean.getMov_theater()==null || movbean.getMov_date()==null || movbean.getMov_time()==null || movbean.getMov_price()<=0)
 	{
 	PrintWriter script = response.getWriter();
 	script.println("<script>");
@@ -30,7 +33,6 @@
 	}else {
 	PrintWriter script = response.getWriter();
 
-	//이제 여기다가 updateMovie메소드 실행시켜야됑!
 	mdao.updateMovieInfo(movbean);
 	
 	script.println("<script>");

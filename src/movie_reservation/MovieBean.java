@@ -11,7 +11,7 @@ public class MovieBean {
 	int mov_price; //영화가격
 	String mov_img; //영화이미지(jpg,png)
 	
-	int peo_num; //인원수
+	int peo_num; //인원수 인원수만큼 예약좌석 선택해야되는데..이거어케함...
 	String res_seat; //예약좌석
 	
 	

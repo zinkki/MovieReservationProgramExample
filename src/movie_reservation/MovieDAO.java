@@ -120,7 +120,7 @@ public class MovieDAO {
 		}
 	}
 
-	//(관리자)영화 정보수정하기!
+	//(관리자)영화 정보수정하기! >>다 되긴 하는데 이미지경로 바꿔야될듯...이미지만 안나옴..경로문제ㅠ
 	public void updateMovieInfo(MovieBean mbean) {
 		
 		getCon();
@@ -154,20 +154,20 @@ public class MovieDAO {
 		getCon();
 		
 		try {
-		String sql = "SELECT * FROM movie ORDER BY mov_code asc";
+		String sql = "SELECT mov_img,mov_genre,mov_title,mov_date,mov_time,mov_theater,mov_price,mov_code FROM movie ORDER BY mov_code ASC";
 		pstmt = con.prepareStatement(sql);
 		rs = pstmt.executeQuery();
 		
 		while(rs.next()) {
 			MovieBean bean = new MovieBean();
-			bean.setMov_code(rs.getInt(1));
+			bean.setMov_img(rs.getString(1));
 			bean.setMov_genre(rs.getString(2));
-			bean.setMov_img(rs.getString(3));
-			bean.setMov_title(rs.getString(4));
-			bean.setMov_theater(rs.getString(5));
-			bean.setMov_date(rs.getString(6));
-			bean.setMov_time(rs.getString(7));
-			bean.setMov_price(rs.getInt(8));
+			bean.setMov_title(rs.getString(3));
+			bean.setMov_date(rs.getString(4));
+			bean.setMov_time(rs.getString(5));
+			bean.setMov_theater(rs.getString(6));
+			bean.setMov_price(rs.getInt(7));
+			bean.setMov_code(rs.getInt(8));
 			v.add(bean);
 		}
 			con.close();

@@ -10,22 +10,37 @@
 </head>
 <body>
 <% 
-	String savePath = "C:/Users/Administrator/git/MovieReservationProgramExample/WebContent/fileupload";
+	String savePath = "C:/Users/Administrator/git/MovieReservationProgramExample/WebContent/img";
 	
-	int sizeLimit = 1024*1024*15;
-	MultipartRequest multi = new MultipartRequest(request,savePath,sizeLimit,"utf-8",new DefaultFileRenamePolicy());	
+	int sizeLimit = 5*1024*1024; 
+	MultipartRequest multi = new MultipartRequest(request,savePath,sizeLimit,"utf-8");	
 	
 %>
 <table align="center">
 	<tr>
-	<td>이미지 파일: </td>
-	<td><img src="../img/<%=multi.getParameter("img") %>" width="300" height="210"></td>
+	<td>얘는 c:어쩌구저쩌구 경로복붙한거..</td>
+	<td><img src="img/<%=multi.getFilesystemName("img") %>" width="120px" height="170px"/></td>
 	</tr>
 	<tr>
-	<td>대충 암꺼나 ... :</td>
-	<td><%=multi.getParameter("text") %></td>
+	<td>
+		<p><%=multi.getFilesystemName("img") %></p>
+	</td>
+	<%-- <td>얘네중에 하나만 되면됨..</td>
+	<td><%=multi.getParameter("img") %></td>
 	</tr>
-	
+	<tr>
+	<td>하나만 나와라</td>
+	<td><img src="WebContents/img/<%=multi.getParameter("img") %>"></td>
+	</tr>
+	<tr>
+	<td>하나만걸려라</td>
+	<td><%=multi.getFilesystemName("img") %></td>
+	</tr>
+	<tr>
+	<td>ㅈㅂ</td>
+	 <td><img src="WebContents/img/<%=multi.getParameter("img") %>" width="120" height="170"></td>	--%>
+	</tr>
+
 </table>
 </body>
 </html>

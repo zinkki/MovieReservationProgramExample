@@ -1,3 +1,4 @@
+<%@page import="com.oreilly.servlet.MultipartRequest"%>
 <%@ page import="movie_reservation.MovieDAO" %>
 <%@ page import="movie_reservation.MovieBean" %>
 <%@ page import="java.util.Vector" %>
@@ -11,7 +12,11 @@
 </head>
 <body>
 
-<%-- <%
+<%-- <jsp:useBean id="bean" class="movie_reservation.MovieBean">
+	<jsp:setProperty name="bean" property="*"/>
+</jsp:useBean>
+
+<%
 	MovieDAO mdao = new MovieDAO();
 	Vector<MovieBean> v = mdao.imgList();
 %>
@@ -30,11 +35,11 @@
 	
 </table> --%>
 
-<form action="fileExample2.jsp" method="post" enctype="multipart/form-data">
+ <form action="fileExample2.jsp" method="post" enctype="multipart/form-data">
 <table align="center">
 <tr>
 	<td>내가보낼 이미지 : </td>
-	<td><input type="file" name="img" accept="img/jpg,img/png"></td>
+	<td><input type="file" name="img" accept="img/jpg,img/png"></td> 
 </tr>
 <tr>
  	<td>내가 보낼 글자...:</td>
@@ -42,12 +47,12 @@
 </tr>
 <tr>
 	<td><input type="submit" value="전송"></td>
-</tr>
-</table>
-
-
-
+</tr> 
+</table> 
 </form>
+
+
+
 
 
 
