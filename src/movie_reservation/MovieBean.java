@@ -10,8 +10,12 @@ public class MovieBean {
 	String mov_time; //영화시간
 	int mov_price; //영화가격
 	String mov_img; //영화이미지(jpg,png)
-	int peo_num; //인원수 인원수만큼 예약좌석 선택해야되는데..이거어케함...
-	String res_seat; //예약좌석 >배열...?
+	
+	/*
+	 * int peo_num; //인원수 인원수만큼 예약좌석 선택해야되는데..이거어케함... 
+	 * String res_seat; //예약좌석
+	 * >배열...?
+	 */	
 	
 	public String getMov_img() {
 		return mov_img;
@@ -62,17 +66,6 @@ public class MovieBean {
 	public void setMov_price(int mov_price) {
 		this.mov_price = mov_price;
 	}
-	public int getPeo_num() {
-		return peo_num;
-	}
-	public void setPeo_num(int peo_num) {
-		this.peo_num = peo_num;
-	}
-	public String getRes_seat() {
-		return res_seat;
-	}
-	public void setRes_seat(String res_seat) {
-		this.res_seat = res_seat;
-	}
+
 	
 }
