@@ -1,5 +1,5 @@
 <%@ page import="java.io.PrintWriter"%>
-<%@ page import="movie_reservation.MemberBean"%>
+<%@ page import="movie_reservation.Bean"%>
 <%@ page import="movie_reservation.MemberDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
@@ -11,7 +11,7 @@
 </head>
 <body>
 
-	<jsp:useBean id="mbean" class="movie_reservation.MemberBean">
+	<jsp:useBean id="mbean" class="movie_reservation.Bean">
 		<jsp:setProperty name="mbean" property="mem_id" />
 		<jsp:setProperty name="mbean" property="mem_pass1" />
 	</jsp:useBean>

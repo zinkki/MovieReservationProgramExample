@@ -1,4 +1,4 @@
-<%@ page import="movie_reservation.MemberBean"%>
+<%@ page import="movie_reservation.Bean"%>
 <%@ page import="movie_reservation.MemberDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>

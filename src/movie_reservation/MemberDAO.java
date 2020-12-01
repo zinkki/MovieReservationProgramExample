@@ -25,7 +25,7 @@ public class MemberDAO {
 		}
 	}
 	
-	public void insertMember(MemberBean mbean) {
+	public void insertMember(Bean mbean) {
 		
 		try {
 		getCon();

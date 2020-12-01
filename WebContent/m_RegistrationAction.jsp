@@ -1,6 +1,5 @@
-<%@ page import="movie_reservation.MovieBean"%>
+<%@ page import="movie_reservation.Bean"%>
 <%@ page import="movie_reservation.MovieDAO"%>
-<%@ page import="movie_reservation.MemberBean"%>
 <%@ page import="movie_reservation.MemberDAO"%>
 <%@page import="java.io.PrintWriter"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -13,12 +12,10 @@
 </head>
 <body>
 
-	<jsp:useBean id="movbean" class="movie_reservation.MovieBean">
+	<jsp:useBean id="movbean" class="movie_reservation.Bean">
 		<jsp:setProperty name="movbean" property="*" />
 	</jsp:useBean>
-	<jsp:useBean id="membean" class="movie_reservation.MemberBean">
-		<jsp:setProperty name="membean" property="mem_id" />
-	</jsp:useBean>
+
 
 	<%
 	

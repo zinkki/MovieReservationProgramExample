@@ -1,6 +1,6 @@
 <%@ page import="movie_reservation.MovieDAO" %>
-<%@ page import="movie_reservation.MovieBean" %>
-<%@ page import="movie_reservation.MemberBean" %>
+<%@ page import="movie_reservation.Bean" %>
+<%@ page import="movie_reservation.Movie_Res_DAO" %>
 <%@ page import="java.util.Vector" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -32,26 +32,28 @@
                 $(":checkbox").removeAttr("disabled");
             });
         });
+        
     </script>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
-<jsp:useBean id="mov_res_bean" class="movie_reservation.Movie_Res_Bean">
-	<jsp:setProperty name="mov_res_bean" property="*"/>
-</jsp:useBean>
-<jsp:useBean id="mem_bean" class="movie_reservation.Movie_Res_Bean">
-	<jsp:setProperty name="mem_bean" property="*"/>
+<jsp:useBean id="mbean" class="movie_reservation.Bean">
+	<jsp:setProperty name="mbean" property="*"/>
 </jsp:useBean>
 
+
 <%
-	MovieDAO mdao = new MovieDAO();
-	Vector<MovieBean> vec = mdao.movieInfo(mov_res_bean.getMov_code());
-	MemberBean mbean = new MemberBean();
+	String mem_id=(String)session.getAttribute("mem_id");
+	MovieDAO mdao= new MovieDAO();
+	//Reservation Confirm페이지로 보내기(submit)
+	Vector<Bean> vec = mdao.movieInfo(mbean.getMov_code());
+	
 	for(int i=0; i<vec.size(); i++) {
-		MovieBean bean = vec.get(i);
+		Bean bean = vec.get(i);
 %>
 <h1 align="center">Movie Reservation</h1>
+<form action="m_ReservationInfo.jsp" method="post">
 	<table align="center" border="1">
 		<tr height="40">
 			<td align="center" width="200">Title</td>
@@ -94,7 +96,6 @@
 			</select> 
 			</td>
 		</tr>
-		
 		
 		<tr height="220">
 			<td align="center" width="200">Seat</td>
@@ -152,7 +153,7 @@
 			<td align="center" colspan="2">
 			<input type="button" value="NEXT"
 			onclick="if(confirm('Are you sure you want to reservation it?')){
-				location.href='m_ReservationInfo.jsp?mov_code=<%=bean.getMov_code() %>'
+				location.href='m_ReservationInfo.jsp?mov_code=<%=bean.getMov_code() %>&mem_id=<%=mem_id %>&peo_num=<%=bean.getPeo_num() %>'
 				alert('OK');
 			}else { alert('Cancele');}">
 			&nbsp;&nbsp;
@@ -163,5 +164,6 @@
 <%
 	}
 %>
+</form>
 </body>
 </html>

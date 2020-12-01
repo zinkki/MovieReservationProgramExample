@@ -26,7 +26,7 @@ public class MovieDAO {
 		}
 	}
 	
-	public void insertMovie(MovieBean mbean) {
+	public void insertMovie(Bean mbean) {
 		
 		try {
 			getCon();
@@ -48,9 +48,9 @@ public class MovieDAO {
 	}
 	
 	//영화리스트 불러오기
-	public Vector<MovieBean> movieRegistrationList() {
+	public Vector<Bean> movieRegistrationList() {
 		
-		Vector<MovieBean> v = new Vector<>();
+		Vector<Bean> v = new Vector<>();
 		getCon();
 		try {
 			String sql = "SELECT * FROM movie ORDER BY mov_code asc";
@@ -58,7 +58,7 @@ public class MovieDAO {
 			rs = pstmt.executeQuery();
 			
 			while(rs.next()) {
-				MovieBean mbean = new MovieBean();
+				Bean mbean = new Bean();
 				mbean.setMov_code(rs.getInt(1));
 				mbean.setMov_date(rs.getString(6));
 				mbean.setMov_title(rs.getString(3));
@@ -72,9 +72,9 @@ public class MovieDAO {
 	}
 	
 	//영화등록리스트에서 선택한 영화의 정보를 볼수있당!
-	public Vector<MovieBean> movieInfo(int mov_code){
+	public Vector<Bean> movieInfo(int mov_code){
 		
-		Vector<MovieBean> v = new Vector<>();
+		Vector<Bean> v = new Vector<>();
 		
 		getCon();
 		
@@ -85,7 +85,7 @@ public class MovieDAO {
 			rs = pstmt.executeQuery();
 			
 			while(rs.next()) {
-				MovieBean mbean = new MovieBean();
+				Bean mbean = new Bean();
 				mbean.setMov_code(rs.getInt(1));
 				mbean.setMov_theater(rs.getString(2));
 				mbean.setMov_title(rs.getString(3));
@@ -121,7 +121,7 @@ public class MovieDAO {
 	}
 
 	//(관리자)영화 정보수정하기! >>다 되긴 하는데 이미지경로 바꿔야될듯...이미지만 안나옴..경로문제ㅠ
-	public void updateMovieInfo(MovieBean mbean) {
+	public void updateMovieInfo(Bean mbean) {
 		
 		getCon();
 		
@@ -148,9 +148,9 @@ public class MovieDAO {
 	}
 	
 	//이미지불러와지는지...확인하기ㅜ
-	public Vector<MovieBean> imgList(){
+	public Vector<Bean> imgList(){
 		
-		Vector<MovieBean> v = new Vector<>();
+		Vector<Bean> v = new Vector<>();
 		getCon();
 		
 		try {
@@ -159,7 +159,7 @@ public class MovieDAO {
 		rs = pstmt.executeQuery();
 		
 		while(rs.next()) {
-			MovieBean bean = new MovieBean();
+			Bean bean = new Bean();
 			bean.setMov_img(rs.getString(1));
 			bean.setMov_genre(rs.getString(2));
 			bean.setMov_title(rs.getString(3));

@@ -2,7 +2,7 @@
 <%@ page import="java.util.Vector" %>
 <%@page import="java.io.PrintWriter"%>
 <%@ page import="movie_reservation.MovieDAO"%>
-<%@ page import="movie_reservation.MovieBean"%>
+<%@ page import="movie_reservation.Bean"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -12,12 +12,10 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<jsp:useBean id="movbean" class="movie_reservation.MovieBean">
+	<jsp:useBean id="movbean" class="movie_reservation.Bean">
 		<jsp:setProperty name="movbean" property="*" />
 	</jsp:useBean>
-	<jsp:useBean id="membean" class="movie_reservation.MemberBean">
-		<jsp:setProperty name="membean" property="*" />	
-	</jsp:useBean>
+
 <%
 	
 	MovieDAO mdao = new MovieDAO(); 

@@ -1,5 +1,5 @@
 <%@ page import="java.util.Vector" %>
-<%@ page import="movie_reservation.MovieBean" %>
+<%@ page import="movie_reservation.Bean" %>
 <%@ page import="movie_reservation.MovieDAO" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -11,16 +11,16 @@
 </head>
 <body>
 
-<jsp:useBean id="mov_bean" class="movie_reservation.MovieBean">
+<jsp:useBean id="mov_bean" class="movie_reservation.Bean">
 	<jsp:setProperty name="mov_bean" property="*"/>
 </jsp:useBean>
 
 <%
 	MovieDAO mdao = new MovieDAO();
-	Vector<MovieBean> vec = mdao.movieInfo(mov_bean.getMov_code());
+	Vector<Bean> vec = mdao.movieInfo(mov_bean.getMov_code());
 	
 	for(int i=0; i<vec.size(); i++) {
-		MovieBean bean = vec.get(i);
+		Bean bean = vec.get(i);
 %>
 	<h1 align="center">Movie Information</h1>
 	<table align="center" border="1">

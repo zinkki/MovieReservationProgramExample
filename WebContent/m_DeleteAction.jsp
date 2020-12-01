@@ -1,4 +1,4 @@
-<%@ page import="movie_reservation.MovieBean" %>
+<%@ page import="movie_reservation.Bean" %>
 <%@ page import="movie_reservation.MovieDAO" %>
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -11,7 +11,7 @@
 </head>
 <body>
 
-<jsp:useBean id="mbean" class="movie_reservation.MovieBean">
+<jsp:useBean id="mbean" class="movie_reservation.Bean">
 	<jsp:setProperty name="mbean" property="*"/>
 </jsp:useBean>
 

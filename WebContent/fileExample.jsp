@@ -1,6 +1,6 @@
 <%@page import="com.oreilly.servlet.MultipartRequest"%>
 <%@ page import="movie_reservation.MovieDAO" %>
-<%@ page import="movie_reservation.MovieBean" %>
+<%@ page import="movie_reservation.Bean" %>
 <%@ page import="java.util.Vector" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>

@@ -1,6 +1,6 @@
 <%@ page import="java.util.Vector" %>
 <%@ page import="movie_reservation.MovieDAO" %>
-<%@ page import="movie_reservation.MovieBean" %>
+<%@ page import="movie_reservation.Bean" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -16,10 +16,10 @@
 <%
 	int mov_code= Integer.parseInt(request.getParameter("mov_code"));
 	MovieDAO mdao = new MovieDAO();
-	Vector<MovieBean> vec = mdao.movieInfo(mov_code);
+	Vector<Bean> vec = mdao.movieInfo(mov_code);
 	
 	for(int i=0; i<vec.size(); i++) {
-		MovieBean mbean = vec.get(i);
+		Bean mbean = vec.get(i);
 %>
 
 <h1 align="center">Movie Information</h1>

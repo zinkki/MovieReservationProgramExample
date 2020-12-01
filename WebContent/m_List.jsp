@@ -1,5 +1,5 @@
 <%@ page import="movie_reservation.MovieDAO" %>
-<%@ page import="movie_reservation.MovieBean" %>
+<%@ page import="movie_reservation.Bean" %>
 <%@page import="java.util.Vector"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -14,7 +14,7 @@
 
 <%
 	MovieDAO mdao = new MovieDAO();
-	Vector<MovieBean> vec = mdao.imgList();
+	Vector<Bean> vec = mdao.imgList();
 	
 %>
 
@@ -23,7 +23,7 @@
 <tr>
 <%
 	for(int i=0; i<vec.size();i++) {
-	MovieBean mbean = vec.get(i);
+		Bean mbean = vec.get(i);
 %>
 <td align="center"><img src="img/<%=mbean.getMov_img() %>" width="120px" height="180px"></td>
 <td align="left">[<%=mbean.getMov_genre() %>] <a href="m_DetailInfo.jsp?mov_code=<%=mbean.getMov_code()%>"><%=mbean.getMov_title() %></a> <br> <br>
