@@ -4,18 +4,30 @@ import java.util.Vector;
 
 public class Movie_Res_DAO extends MovieDAO{
 
+	//main페이지로그인후 movieReservation버튼눌렀을때 정보보여주기
+	public Vector<Bean> main_Reservation(String id) {
+		
+		Vector<Bean> v = new Vector<>();
+		getCon();
+		try {
+		String sql = "SELECT * FROM movie WHERE mem_id=?";
+		
+		} catch (Exception e) {
+
+		}
+		return v;
+	}
 	
 	public void movieReservation(Bean resbean) {
 		try {
 		getCon();
 		Bean bean = new Bean();
-		String sql = "INSERT INTO mov_reservation(res_num,mem_id,mov_code,res_seat,res_price) VALUES(res_num.nextval,?,?,?,?) WHERE mem_id=?";
+		String sql = "INSERT INTO mov_reservation(res_num,mem_id,mov_code,res_seat,res_price) VALUES(res_num.nextval,?,?,?,?)";
 		pstmt = con.prepareStatement(sql);
 		pstmt.setString(1, resbean.getMem_id());
 		pstmt.setInt(2, resbean.getMov_code());
 		pstmt.setString(3, resbean.getRes_seat());
 		pstmt.setInt(4, resbean.getRes_price());
-		pstmt.setString(5, resbean.getMem_id());
 		pstmt.executeUpdate();
 		con.close();
 		} catch (Exception e) {

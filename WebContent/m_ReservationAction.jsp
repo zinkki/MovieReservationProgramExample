@@ -1,3 +1,6 @@
+<%@ page import="movie_reservation.Movie_Res_DAO" %>
+<%@ page import="movie_reservation.Bean" %>
+<%@page import="java.io.PrintWriter"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -13,20 +16,30 @@
 
 <%
 	String mem_id= null;
-	if(session.getAttribute("mem_id") != null) {
+	
+	if(session.getAttribute("mem_id") != null ){
+	   mem_id = (String)session.getAttribute("mem_id");
+	 
+	    Movie_Res_DAO mrdao = new Movie_Res_DAO();
+	    
 		mem_id = (String)session.getAttribute("mem_id");
+		int peo_num=((Integer)session.getAttribute("peo_num"));
+		
+		String res_seat = request.getParameter("res_seat");
+		
+		
+		mrdao.movieReservation(mbean);
+		response.sendRedirect("m_ReservationInfo.jsp");
+		
+	}else {
+		 PrintWriter script= response.getWriter();
+			script.println("<script>");
+			script.println("alert('You need Login!')");
+			script.println("location.href='m_Login.jsp'");
+			script.println("</script>");
 	}
-	String peo_num = request.getParameter("peo_num");
-	String res_seat = request.getParameter("res_seat");
-
+	
+	
 %>
-
-<table align="center" border="1">
-	<tr height="40">
-		<td align="center">Peo_num</td>
-		<td align="center"><%=peo_num %></td>
-	</tr>
-</table>
-
 </body>
 </html>
