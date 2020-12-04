@@ -24,6 +24,7 @@ public class Movie_Res_DAO extends MovieDAO{
 		Bean bean = new Bean();
 		String sql = "INSERT INTO mov_reservation(res_num,mem_id,mov_code,res_seat,res_price) VALUES(res_num.nextval,?,?,?,?)";
 		pstmt = con.prepareStatement(sql);
+		
 		pstmt.setString(1, resbean.getMem_id());
 		pstmt.setInt(2, resbean.getMov_code());
 		pstmt.setString(3, resbean.getRes_seat());

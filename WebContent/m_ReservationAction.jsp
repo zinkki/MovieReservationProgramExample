@@ -25,10 +25,17 @@
 		mem_id = (String)session.getAttribute("mem_id");
 		int peo_num=((Integer)session.getAttribute("peo_num"));
 		
-		String res_seat = request.getParameter("res_seat");
+		String[] res_seat = request.getParameterValues("res_seat");
+		String txt_res_seat = "";
 		
+		for(int i=0; i<res_seat.length; i++) {
+			txt_res_seat += res_seat[i];
+		}
+		 mbean.setRes_seat(txt_res_seat);
 		
+		//mov_reservation 테이블에 insert
 		mrdao.movieReservation(mbean);
+		
 		response.sendRedirect("m_ReservationInfo.jsp");
 		
 	}else {

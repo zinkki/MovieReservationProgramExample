@@ -16,18 +16,16 @@
 <%
 	int mov_code= Integer.parseInt(request.getParameter("mov_code"));
 	MovieDAO mdao = new MovieDAO();
-	Vector<Bean> vec = mdao.movieInfo(mov_code);
+	Bean vec = mdao.movieInfo(mov_code);
 	
-	for(int i=0; i<vec.size(); i++) {
-		Bean mbean = vec.get(i);
+	
 %>
-
 <h1 align="center">Movie Information</h1>
 <form action="m_UpdateAction.jsp" method="post">
 	<table align="center" border="1">
 		<tr height="40">
 			<td align="center" width="200"> MOVIE CODE </td>
-			<td align="center" width="300"><input type="text" name="mov_code" value="<%=mbean.getMov_code() %>"></td>
+			<td align="center" width="300"><input type="text" name="mov_code" value="<%=vec.getMov_code() %>"></td>
 		</tr>
 		<tr height="40">
 			<td align="center" width="200"> MOVIE GENRE </td>
@@ -54,7 +52,7 @@
 		</tr>
 		<tr height="40">
 			<td align="center" width="200">Title</td>
-			<td align="center" width="350"><input type="text" name="mov_title" value="<%=mbean.getMov_title() %>"></td>
+			<td align="center" width="350"><input type="text" name="mov_title" value="<%=vec.getMov_title() %>"></td>
 		</tr>
 		<tr height="40">
 			<td align="center" width="200">Theater</td>
@@ -105,17 +103,17 @@
 		</tr>
 		<tr height="40">
 			<td align="center" width="200">Price</td>
-			<td align="center" width="350"><input type="text" name="mov_price" value="<%=mbean.getMov_price() %>"></td>
+			<td align="center" width="350"><input type="text" name="mov_price" value="<%=vec.getMov_price() %>"></td>
 		</tr>
 		<tr height="40">
 			<td align="center" colspan="2">
-			<input type="hidden" name="mov_code" value="<%=mbean.getMov_code() %>">
+			<input type="hidden" name="mov_code" value="<%=vec.getMov_code() %>">
 			&nbsp;&nbsp;
 			<input type="submit" value="UPDATE">
 			&nbsp;&nbsp;
 			<input type="reset" value="RESET"></td>
 		</tr>
-<% } %>
+
 		
 	</table>
 </form>

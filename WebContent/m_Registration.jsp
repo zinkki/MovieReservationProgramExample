@@ -37,6 +37,10 @@
 		<td width="150" align="center"> MOVIE TITLE </td>
 		<td width="350" align="center"> <input type="text" name="mov_title" size="40"></td>
 	</tr>
+	<tr height="150">
+		<td width="150" align="center">Movie Poster</td>
+		<td width="350" align="center"><input type="file" name="mov_poster"></td>
+	</tr>
 	<tr height="50">
 		<td width="150" align="center"> MOVIE THEATER </td>
 		<td width="350" align="center"> 

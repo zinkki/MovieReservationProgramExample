@@ -15,34 +15,57 @@
 </jsp:useBean>
 <%
 	Movie_Res_DAO mrdao = new Movie_Res_DAO();
-	
-	String mem_id = (String)session.getAttribute("mem_id");
-	int mov_code = ((Integer)session.getAttribute("mov_code"));
+	Bean bean = new Bean();
+	String mem_id=(String)session.getAttribute("mem_id");
+	int mov_code = (Integer)session.getAttribute("mov_code");
+	String[] res_seat = request.getParameterValues("res_seat");	
+	int mov_price = Integer.parseInt(request.getParameter("mov_price"));
 	int peo_num = Integer.parseInt(request.getParameter("peo_num"));
+	int res_price = peo_num*mov_price;
 	
-	String [] res_seat = request.getParameterValues("res_seat");
-	String txt_res_seat = "";
-	
-	for(int i=0; i<res_seat.length; i++) {
-		txt_res_seat += res_seat[i]+" ";
-	}
-	 mbean.setRes_seat(txt_res_seat);
-	 
-	 mrdao.movieReservation(mbean);
-	 
-	 session.setAttribute("mem_id", mbean.getMem_id());
-	 session.setAttribute("mov_code",mbean.getMov_code());
-	 
-	 session.setMaxInactiveInterval(60*2);
-	 
-	 response.sendRedirect("m_ReservationInfo.jsp");
+		String txt_res_seat = "";
+		
+		System.out.println("peo_num"+peo_num);
+		System.out.println("좌석 갯수"+res_seat.length);
+		
+		for (int i = 0; i < res_seat.length; i++) {
+			
+			txt_res_seat += res_seat[i] + ", ";
+					
+		}
+		
+		System.out.println("좌석" + txt_res_seat);
+		
+		//아이디
+		mbean.setMem_id(mem_id);
+		//좌석 (전부표시)
+		mbean.setRes_seat(txt_res_seat);
+		//가격
+		mbean.setRes_price(res_price);
+		//디비 
+		mrdao.movieReservation(mbean);
+
 %>
 
+
 <h2 align="center"><%=mem_id %> 's Reservation</h2>
-<table align="center">
+<table align="center" border="1">
+
 <tr height="40">
-	<td align="center">mem_id</td>
-	<td align="center"><%=mem_id %></td>
+	<td align="center" width="150">Date / Time</td>
+	<td align="center" width="350"><%=mbean.getMov_date() %> &nbsp; [<%=mbean.getMov_time() %>]</td>
+</tr>
+<tr height="40">
+	<td align="center" width="150">Movie Title</td>
+	<td align="center" width="350">[<%=mbean.getMov_genre() %>]&nbsp; <%=mbean.getMov_title() %></td>
+</tr>
+<tr height="40">
+	<td align="center" width="150">Seat</td>
+	<td align="center" width="350"><%=mbean.getRes_seat() %></td>
+</tr>
+<tr height="40">
+	<td align="center" width="150">Price</td>
+	<td align="center" width="350"><%=mbean.getRes_price() %>
 </tr>
 
 </table>

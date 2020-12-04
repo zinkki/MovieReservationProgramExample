@@ -125,10 +125,10 @@ public class Bean {
 		this.res_seat = res_seat;
 	}
 	public int getRes_price() {
-		return res_price;
+		return res_price = peo_num*mov_price;
 	}
 	public void setRes_price(int res_price) {
-		this.res_price = res_price;
+		this.res_price = peo_num*mov_price;
 	}
 	
 	

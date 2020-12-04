@@ -72,10 +72,9 @@ public class MovieDAO {
 	}
 	
 	//영화등록리스트에서 선택한 영화의 정보를 볼수있당!
-	public Vector<Bean> movieInfo(int mov_code){
+	public Bean movieInfo(int mov_code){
 		
-		Vector<Bean> v = new Vector<>();
-		
+		Bean mbean = new Bean();		
 		getCon();
 		
 		try {
@@ -85,7 +84,7 @@ public class MovieDAO {
 			rs = pstmt.executeQuery();
 			
 			while(rs.next()) {
-				Bean mbean = new Bean();
+				
 				mbean.setMov_code(rs.getInt(1));
 				mbean.setMov_theater(rs.getString(2));
 				mbean.setMov_title(rs.getString(3));
@@ -94,13 +93,12 @@ public class MovieDAO {
 				mbean.setMov_date(rs.getString(6));
 				mbean.setMov_time(rs.getString(7));
 				mbean.setMov_img(rs.getString(8));
-				v.add(mbean);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		
-		return v;
+		return mbean;
 	}
 	
 	//(관리자)영화삭제하기
