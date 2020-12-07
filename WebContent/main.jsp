@@ -31,10 +31,10 @@
 <%
 	if(mem_id.equals("GUEST")){
 %>
-		<h3 align="right">You are
-		<%=mem_id %> ! <br>
-		 <button type="button" onclick="location.href='m_Login.jsp'">LOGIN</button> &nbsp;&nbsp; 
-		 <button type="button" onclick="location.href='m_Join.jsp'">JOIN</button></h3>
+		<h3 align="left">&nbsp;&nbsp;You are
+		<%=mem_id %> ! </h3>
+		 &nbsp;&nbsp;&nbsp;<button type="button" onclick="location.href='m_Login.jsp'">LOGIN</button> 
+		 <button type="button" onclick="location.href='m_Join.jsp'">JOIN</button>
 
 <h1 align="center">MOVIE LIST</h1>
 <table align="center" width="400">
@@ -44,7 +44,7 @@
 		Bean mbean = vec.get(i);
 %>
 <td align="center"><img src="img/<%=mbean.getMov_img() %>" width="120px" height="180px"></td>
-<td align="left">[<%=mbean.getMov_genre() %>] <a href="m_DetailInfo.jsp?mov_code=<%=mbean.getMov_code()%>"><%=mbean.getMov_title() %></a> <br> <br>
+<td align="left">[&nbsp;<%=mbean.getMov_genre() %>&nbsp;] <a href="m_DetailInfo.jsp?mov_code=<%=mbean.getMov_code()%>"><%=mbean.getMov_title() %></a> <br> <br>
 	<%=mbean.getMov_date() %><br>
 	<%=mbean.getMov_time() %><br><br>
 	<%=mbean.getMov_theater() %><br><br>
@@ -60,9 +60,10 @@
 <%
 	}else if(mem_id.equals("admin")){
 %>
-		<h3 align="right"><%=mem_id %>. <br> 
-		<a href="m_LogoutAction.jsp">Logout</a><br><br> 
-		<a href="m_RegistrationList.jsp">Go to Movie Registration!</a></h3>
+		<h2 align="left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%=mem_id %>.</h2>
+		<button  type="button" value="LOGOUT" onclick="location.href='m_LogoutAction.jsp'">LOGOUT</button>
+		<button  type="button" value="Movie Reservation" onclick="location.href='m_RegistrationList.jsp'">Movie Registration</button>
+		
 
 <h1 align="center">MOVIE LIST</h1>
 <table align="center" width="400">
@@ -72,7 +73,7 @@
 		Bean mbean = vec.get(i);
 %>
 <td align="center"><img src="img/<%=mbean.getMov_img() %>" width="120px" height="180px"></td>
-<td align="left">[<%=mbean.getMov_genre() %>] <a href="m_DetailInfo.jsp?mov_code=<%=mbean.getMov_code()%>"><%=mbean.getMov_title() %></a> <br> <br>
+<td align="left">[&nbsp;<%=mbean.getMov_genre() %>&nbsp;] <a href="m_DetailInfo.jsp?mov_code=<%=mbean.getMov_code()%>"><%=mbean.getMov_title() %></a> <br> <br>
 	<%=mbean.getMov_date() %><br>
 	<%=mbean.getMov_time() %><br><br>
 	<%=mbean.getMov_theater() %><br><br>
@@ -87,9 +88,9 @@
 <%
 	}else {
 %>
-		<h3 align="right"><%=mem_id %> &nbsp;, WELCOME! <br> 
-		<a href="m_LogoutAction.jsp">Logout</a></h3>
-
+		<h3 align="left"><%=mem_id %> &nbsp;, WELCOME! </h3> 
+		<button type="button" value="LOGOUT" onclick="location.href='m_LogoutAction.jsp'">LOGOUT</button>
+		<button type="button" value="MY_PAGE" onclick="location.href='m_Mypage.jsp?mem_id=<%=mem_id%>'">MY PAGE</button>
 <h1 align="center">MOVIE LIST</h1>
 <table align="center" width="400">
 <tr>
@@ -98,7 +99,7 @@
 		Bean mbean = vec.get(i);
 %>
 <td align="center"><img src="img/<%=mbean.getMov_img() %>" width="120px" height="180px"></td>
-<td align="left">[<%=mbean.getMov_genre() %>] <a href="m_DetailInfo.jsp?mov_code=<%=mbean.getMov_code()%>"><%=mbean.getMov_title() %></a> <br> <br>
+<td align="left">[&nbsp;<%=mbean.getMov_genre() %>&nbsp;] <a href="m_DetailInfo.jsp?mov_code=<%=mbean.getMov_code()%>"><%=mbean.getMov_title() %></a> <br> <br>
 	<%=mbean.getMov_date() %><br>
 	<%=mbean.getMov_time() %><br><br>
 	<%=mbean.getMov_theater() %><br><br>

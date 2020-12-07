@@ -100,9 +100,9 @@
 			<tr height="220">
 				<td align="center" width="200">Seat</td>
 				<td align="center" width="300"><p align="center">[screen]</p>
-					<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;2&nbsp;&nbsp;&nbsp;&nbsp;3&nbsp;&nbsp;&nbsp;&nbsp;4
-						&nbsp;&nbsp;&nbsp;5&nbsp;&nbsp;&nbsp;&nbsp;6&nbsp;&nbsp;&nbsp;&nbsp;7&nbsp;&nbsp;&nbsp;&nbsp;8</p>
-					1&nbsp;&nbsp;&nbsp; <input type="checkbox" name="res_seat"
+					<h4>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;2&nbsp;&nbsp;&nbsp;&nbsp;3&nbsp;&nbsp;&nbsp;&nbsp;4
+						&nbsp;&nbsp;&nbsp;5&nbsp;&nbsp;&nbsp;&nbsp;6&nbsp;&nbsp;&nbsp;&nbsp;7&nbsp;&nbsp;&nbsp;&nbsp;8</h4>
+					1&nbsp;&nbsp;&nbsp;<input type="checkbox" name="res_seat"
 					value="1_1"> <input type="checkbox" name="res_seat"
 					value="1_2"> <input type="checkbox" name="res_seat"
 					value="1_3"> <input type="checkbox" name="res_seat"

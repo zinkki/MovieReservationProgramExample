@@ -17,7 +17,7 @@ public class Movie_Res_DAO extends MovieDAO{
 		}
 		return v;
 	}
-	
+	//영화예매
 	public void movieReservation(Bean resbean) {
 		try {
 		getCon();
@@ -36,10 +36,7 @@ public class Movie_Res_DAO extends MovieDAO{
 		}
 	}
 	
-	//영화예매내역 뽑아보기 sql문 잘못됨(mem_id로 조회해야되는데 mov_code=?로 해놨음..)
-	//그리고 순서잘못정했음.. insert먼저 하고 정보뽑아야되는데 든것도없음서 뽑으려고해서 안됨..
-	//글고 vector타입 int mov_code로 돼있는데 mem_id로 받아와야됨... 할거 많다..
-	//그러려면...일단 id에 세션값설정해서 예매할때 다 하나씩 넣어줘야됨.하...
+	//영화예매후 뜨는 영화예매확인페이지
 	public Vector<Bean> res_Confirm(int mov_code) {
 		
 		Vector<Bean> v = new Vector<>();
@@ -67,4 +64,36 @@ public class Movie_Res_DAO extends MovieDAO{
 		}
 		return v;
 	}
+	
+	public Vector<Bean> res_Mypage(String mem_id) {
+		
+		Vector<Bean> v = new Vector<>();
+		getCon();
+		try {
+			String sql = "select movie.mov_date,movie.mov_time,movie.mov_title,mov_reservation.res_seat,mov_reservation.res_price from movie,mov_reservation where mov_reservation.mov_code=movie.mov_code and mov_reservation.mem_id=?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1,mem_id);
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				Bean bean = new Bean();
+				bean.setMov_date(rs.getString(1));
+				bean.setMov_time(rs.getString(2));
+				bean.setMov_title(rs.getString(3));
+				bean.setMem_id(rs.getString(4));
+				v.add(bean);
+			}
+				con.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return v;
+	}
+	
+	
+	
+	
+	
+	
+	
 }

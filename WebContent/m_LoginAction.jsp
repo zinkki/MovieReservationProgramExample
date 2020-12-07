@@ -33,7 +33,7 @@
 		session.setAttribute("mem_id", mbean.getMem_id());
 		session.setAttribute("mem_pass1", mbean.getMem_pass1());
 		
-		session.setMaxInactiveInterval(60*2);
+		session.setMaxInactiveInterval(60*3);
 		
 		response.sendRedirect("main.jsp");
 	//비밀번호 틀렸을때
