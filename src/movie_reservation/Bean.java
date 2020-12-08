@@ -19,9 +19,17 @@ public class Bean {
 	int mov_price; //영화가격
 	String mov_img; //영화이미지(jpg,png)
 	//movieReservationBean
+	int res_num; //PK(예약번호)
 	int peo_num; //예약시 사람수
 	String res_seat; //예약좌석
 	int res_price; //예약총가격 (사람수*영화가격)
+	
+	public int getRes_num() {
+		return res_num;
+	}
+	public void setRes_num(int res_num) {
+		this.res_num = res_num;
+	}
 	public String getMem_name() {
 		return mem_name;
 	}

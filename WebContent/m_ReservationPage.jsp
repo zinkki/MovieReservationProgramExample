@@ -46,7 +46,7 @@
 
 
 	<%
-		String mem_id = (String) session.getAttribute("mem_id");
+	String mem_id = (String) session.getAttribute("mem_id");
 	Movie_Res_DAO mrdao = new Movie_Res_DAO();
 	
 	Bean vec = mrdao.movieInfo(mbean.getMov_code());

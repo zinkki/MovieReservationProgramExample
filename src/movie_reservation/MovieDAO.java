@@ -84,7 +84,6 @@ public class MovieDAO {
 			rs = pstmt.executeQuery();
 			
 			while(rs.next()) {
-				
 				mbean.setMov_code(rs.getInt(1));
 				mbean.setMov_theater(rs.getString(2));
 				mbean.setMov_title(rs.getString(3));
@@ -93,7 +92,7 @@ public class MovieDAO {
 				mbean.setMov_date(rs.getString(6));
 				mbean.setMov_time(rs.getString(7));
 				mbean.setMov_img(rs.getString(8));
-			}
+			} con.close();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -118,7 +117,7 @@ public class MovieDAO {
 		}
 	}
 
-	//(관리자)영화 정보수정하기! >>다 되긴 하는데 이미지경로 바꿔야될듯...이미지만 안나옴..경로문제ㅠ
+	//(관리자)영화 정보수정하기! 
 	public void updateMovieInfo(Bean mbean) {
 		
 		getCon();

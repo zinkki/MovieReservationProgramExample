@@ -40,7 +40,7 @@
 		System.out.println("좌석 갯수"+res_seat.length);
 		
 		for (int i = 0; i < res_seat.length; i++) {
-			txt_res_seat += res_seat[i] + ", ";
+			txt_res_seat += res_seat[i] + "/";
 		}
 		
 		System.out.println("좌석" + txt_res_seat);
@@ -51,7 +51,9 @@
 		mbean.setRes_seat(txt_res_seat);
 		//가격
 		mbean.setRes_price(res_price);
-		//디비 
+		//인원수
+		mbean.setPeo_num(peo_num);
+		//디비
 		mrdao.movieReservation(mbean);
 	}
 %>
@@ -68,6 +70,9 @@
 	<td align="center" width="150">Movie Title</td>
 	<td align="center" width="350">[<%=mbean.getMov_genre() %>]&nbsp; <%=mbean.getMov_title() %></td>
 </tr>
+<tr height="80">
+	<td align="center" width="150">People Num</td>
+	<td align="center" width="350"><%=mbean.getPeo_num() %></td>
 <tr height="80">
 	<td align="center" width="150">Seat</td>
 	<td align="center" width="350"><%=mbean.getRes_seat() %></td>
